@@ -1,7 +1,5 @@
 <template>
-	<div>
-		content
-	</div>
+	<router-view />
 </template>
 <script>
 export default {
