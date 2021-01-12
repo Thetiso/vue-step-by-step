@@ -2,10 +2,12 @@
 	<div class="hello">
 		<h3>这是首页, {{msg}}</h3>
 		<p>ip: {{ip}}</p>
+		<router-link :to="{name: 'MinePage'}">个人中心</router-link>
 	</div>
 </template>
 
 <script>
+/* eslint-disable */
 import COMMON_APIS from '@/apis/common'
 export default {
 	name: 'HelloWorld',
@@ -25,7 +27,7 @@ export default {
 		},	fail = err=> {
 			console.error(err)
 		}
-		COMMON_APIS.getIpFromSohu().then(success, fail)
+		// COMMON_APIS.getIpFromSohu().then(success, fail)
 	}
 }
 </script>
