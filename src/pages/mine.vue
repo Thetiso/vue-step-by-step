@@ -11,6 +11,11 @@
 				<router-link :to="{name: 'CANPage'}">CAN(测试路由鉴权)</router-link>
 			</li>
 		</ul>
+		<router-link :to="{name:'MineInfoPage'}">测试keepAlive</router-link>
+		<keep-alive>
+			<router-view v-if="$route.meta.keepAlive"></router-view>
+		</keep-alive>
+		<router-view v-if="!$route.meta.keepAlive"></router-view>
 	</div>
 </template>
 <script>

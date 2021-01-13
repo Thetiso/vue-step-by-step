@@ -10,24 +10,39 @@ const router = new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'Index[age',
+            name: 'IndexPage',
             component: () => import('../pages/index.vue')  // component: IndexPage
         },
         {
             path: '/mine',
             name: 'MinePage',
-            component: () => import('../pages/mine.vue')
+            component: () => import('../pages/mine.vue'),
+            children: [
+                {
+                    path: 'info',
+                    name: 'MineInfoPage',
+                    component: () => import('../pages/mine/info.vue'),
+                    meta: {
+                        keepAlive: true
+                    }
+                }
+            ]
         },
         {
             path: '/city',
             children: [
                 {
-                    path: '/bjs',
+                    path: 'bjs',
                     name: 'BJSPage',
                     component: () => import('../pages/city/bjs.vue')
                 },
                 {
-                    path: '/can',
+                    path: '/bjs',  //加了斜杠的访问途径是 /bjs  不加的访问路径是/city/bjs
+                    name: 'BJSPage',
+                    component: () => import('../pages/city/bjs.vue')
+                },
+                {
+                    path: 'can',
                     name: 'CANPage',
                     component: () => import('../pages/city/can.vue'),
                     meta: {
