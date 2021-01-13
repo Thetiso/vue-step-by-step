@@ -23,7 +23,7 @@
 import { mapState, mapActions, mapGetters } from 'vuex';
 export default {
 	data: ()=> ({
-
+		todos: []
 	}),
 	computed: {
 	    ...mapState({
@@ -33,5 +33,17 @@ export default {
 	        authBJS: 'fromBJS',
 	    })
 	},
+	created() {
+		this.$bus.on('add-todo', this.addTodo);
+		this.$bus.once('once', () => console.log('This listener will only fire once'));
+	},
+	beforeDestroy() {
+		this.$bus.off('add-todo', this.addTodo);
+	},
+	methods: {
+		addTodo(newTodo) {
+			this.todos.push(newTodo);
+		}
+	}
 }
 </script>

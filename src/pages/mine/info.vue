@@ -2,14 +2,14 @@
 	<div style="padding-top: 50px;">
 		<div>
 			<router-link to>
-				<button @click="$router.back(-1)">返回个人中心页面</button>
+				<el-button @click="$router.back(-1)">返回个人中心页面</el-button>
 			</router-link>
 		</div>
 		<div>
 			<textarea></textarea>
 		</div>
 		<div>
-			<button @click="addTodo">Vue-Bus</button>
+			<el-button @click="addTodo" type='primary'>Vue-Bus</el-button>
 		</div>
 	</div>
 </template>

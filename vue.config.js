@@ -1,3 +1,9 @@
+const path = require('path');
+
+//拼接路径
+function resolve(dir) {
+    return path.join(__dirname, dir)
+}
 module.exports = {
     lintOnSave: true,
     // cli3 代理是从指定的target后面开始匹配的，不是任意位置；配置pathRewrite可以做替换
@@ -11,12 +17,27 @@ module.exports = {
                 pathRewrite: {
                     '^/api-sh': '/'
                 }
-            },
+			},
+			'/oss': {
+                target: 'http://doc.yctop.com',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/oss': '/'
+                }
+            }
         }
     },
     configureWebpack: {
         externals: {
-            'weixin-js-sdk': 'wx'
+			'lokijs':'loki',
         },
+	},
+	chainWebpack: config => {
+        config
+            .plugin('webpack-bundle-analyzer')
+            .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+        config.resolve.alias
+            .set('@', resolve('src'))
+            .set('#', resolve('public'))
     },
 }

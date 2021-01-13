@@ -29,6 +29,11 @@ const router = new VueRouter({
             ]
         },
         {
+            path: '/loki',
+            name: 'LokiPage',
+            component: () => import('../pages/loki.vue')  // component: IndexPage
+        },
+        {
             path: '/city',
             children: [
                 {

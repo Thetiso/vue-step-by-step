@@ -2,7 +2,12 @@
 	<div class="hello">
 		<h3>这是首页, {{msg}}</h3>
 		<p>ip: {{ip}}</p>
-		<router-link :to="{name: 'MinePage'}">个人中心</router-link>
+		<router-link :to="{name: 'MinePage'}">
+			<el-button>个人中心</el-button>
+		</router-link>
+		<router-link :to="{name: 'LokiPage'}">
+			<el-button>本地数据中心</el-button>
+		</router-link>
 	</div>
 </template>
 
