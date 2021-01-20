@@ -35,17 +35,18 @@ const router = new VueRouter({
         },
         {
             path: '/city',
+            component: () => import('../pages/city/index.vue'),
             children: [
                 {
                     path: 'bjs',
                     name: 'BJSPage',
                     component: () => import('../pages/city/bjs.vue')
                 },
-                {
-                    path: '/bjs',  //加了斜杠的访问途径是 /bjs  不加的访问路径是/city/bjs
-                    name: 'BJSPage',
-                    component: () => import('../pages/city/bjs.vue')
-                },
+                // {
+                //     path: '/bjs',  //加了斜杠的访问途径是 /bjs  不加的访问路径是/city/bjs
+                //     name: 'BJSPage',
+                //     component: () => import('../pages/city/bjs.vue')
+                // },
                 {
                     path: 'can',
                     name: 'CANPage',

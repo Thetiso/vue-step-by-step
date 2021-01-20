@@ -25,6 +25,15 @@ export default {
 	data: ()=> ({
 		ip: ''
 	}),
+	async created() {
+		console.log('CREATED')
+		await new Promise((resolve, reject)=> {
+			setTimeout(()=> {
+				console.log('CREATED AFTER 10S')
+				resolve()
+			}, 10000)
+		})
+	},
 	mounted () {
 		let success = res=> {
 			console.log(res)
@@ -32,6 +41,7 @@ export default {
 		},	fail = err=> {
 			console.error(err)
 		}
+		console.log('MOUNTED');
 		// COMMON_APIS.getIpFromSohu().then(success, fail)
 	}
 }
