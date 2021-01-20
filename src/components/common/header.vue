@@ -1,6 +1,7 @@
 <template>
 	<div>
-		header
+		<router-link to="/">首页</router-link>
+		<p>header: 全局混入: {{citySN}}</p>
 	</div>
 </template>
 <script>

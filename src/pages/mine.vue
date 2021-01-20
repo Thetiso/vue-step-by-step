@@ -16,6 +16,9 @@
 			<router-view v-if="$route.meta.keepAlive"></router-view>
 		</keep-alive>
 		<router-view v-if="!$route.meta.keepAlive"></router-view>
+		<el-row>
+			<el-button @click="updateCipForTest">测试修改store</el-button>
+		</el-row>
 	</div>
 </template>
 <script>
@@ -43,6 +46,9 @@ export default {
 	methods: {
 		addTodo(newTodo) {
 			this.todos.push(newTodo);
+		},
+		updateCipForTest() {
+			this.$store.commit('updateCitySNForTest', Object.assign(this.citySN, {cip: '11.22.33.44'}))
 		}
 	}
 }

@@ -21,6 +21,9 @@ const mutations = {
 		Object.assign(state.citySN, payload)
 		window.localStorage.setItem('citySN', JSON.stringify(state.citySN))
 	},
+	updateCitySNForTest(state, payload) {
+		Object.assign(state.citySN, payload)
+	},
 }
 
 const getters = {
